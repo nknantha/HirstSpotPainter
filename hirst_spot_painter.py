@@ -57,44 +57,6 @@ class HirstSpotPainter(turtle.Turtle):
         self._setup_turtle()
         self._paint()
 
-    def finalize(self) -> None:
-        """
-        Finalize the window so that we can't change after this. Invokes the mainloop of screen.
-        """
-        if self._screen:
-            self._screen.mainloop()
-
-    def screen_size(self, x: int = None, y: int = None) -> Union[None, Tuple[int, int]]:
-        """
-        Returns current screen size if no arguments are passed. If x, y argument is given, changes the screensize
-        and repaint the drawing according to the current size. Size cannot be less than (150, 100).
-
-        :param x: Takes an integer denotes width.
-        :param y: Takes an integer denotes height.
-        :return: None if changes happen else current size in tuple.
-        """
-        if isinstance(x, int) and isinstance(y, int):
-            if x < 150 or y < 100:
-                raise ValueError(f'Minimum value (150, 150), given ({x}, {y})')
-            self._wsize = (x, y)
-            if self._screen:
-                self.clear()
-                self._setup_turtle()
-                self._paint()
-            return None
-        return self._wsize
-
-    def change_colors(self, colors: Sequence[COLORTUPLE]) -> None:
-        """
-        Changes colors with given colors.
-        :param colors: Takes collection of color tuples.
-        """
-        self._colors = colors
-        if self._image_file:
-            self._image_file = ''
-        self.clear()
-        self._paint()
-
     def _build_colors(self) -> None:
         """
         Rebuild the color from image file.
@@ -143,6 +105,44 @@ class HirstSpotPainter(turtle.Turtle):
         """
         return choice(self._colors)
 
+    def change_colors(self, colors: Sequence[COLORTUPLE]) -> None:
+        """
+        Changes colors with given colors.
+        :param colors: Takes collection of color tuples.
+        """
+        self._colors = colors
+        if self._image_file:
+            self._image_file = ''
+        self.clear()
+        self._paint()
+
+    def finalize(self) -> None:
+        """
+        Finalize the window so that we can't change after this. Invokes the mainloop of screen.
+        """
+        if self._screen:
+            self._screen.mainloop()
+
+    def screen_size(self, x: int = None, y: int = None) -> Union[None, Tuple[int, int]]:
+        """
+        Returns current screen size if no arguments are passed. If x, y argument is given, changes the screensize
+        and repaint the drawing according to the current size. Size cannot be less than (150, 100).
+
+        :param x: Takes an integer denotes width.
+        :param y: Takes an integer denotes height.
+        :return: None if changes happen else current size in tuple.
+        """
+        if isinstance(x, int) and isinstance(y, int):
+            if x < 150 or y < 100:
+                raise ValueError(f'Minimum value (150, 150), given ({x}, {y})')
+            self._wsize = (x, y)
+            if self._screen:
+                self.clear()
+                self._setup_turtle()
+                self._paint()
+            return None
+        return self._wsize
+
     def refresh_image(self, image_file: str = '') -> None:
         """
         Refresh/reload image and extract color from them. If empty string given it just reload image.
@@ -158,4 +158,5 @@ class HirstSpotPainter(turtle.Turtle):
 
 
 if __name__ == '__main__':
+    # Photo by Steve Johnson from Pexels
     HirstSpotPainter(size=(600, 600), image_file='Images/Image.jpg').finalize()
