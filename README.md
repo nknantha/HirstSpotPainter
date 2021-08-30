@@ -3,6 +3,7 @@
 <div align='center'>
 ✨ A mini-project for doing Hirst Spot Painting on screen, done using 🐍 Python. ✨
 </div>
+<br>
   
 Hirst Painting:  
     Damien Steven Hirst is an English artist, who dominated the art scene in the UK during the 1990s.
@@ -45,7 +46,7 @@ class `HirstPainter`:
 
 ## Examples
 Input:  
-<img src='Images/Image.jpg' width='57%' alt='Image.jpg'>
+<img src='Images/Image.jpg' width='70%' alt='Image.jpg'>
   
 *Photo by Steve Johnson from Pexels*
   
