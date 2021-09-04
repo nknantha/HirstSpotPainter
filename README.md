@@ -59,10 +59,10 @@ For,
 ```python
 HirstSpotPainter(size=(600, 600), image_file='Images/Image.jpg').finalize()
 ```
-<img src='Images/ScreenGIF_Square.gif' width='50%' alt='ScreenGIF_Square.gif'>
+<img src='Images/ScreenGIF_Square.gif' width='60%' alt='ScreenGIF_Square.gif'>
   
 For,
 ```python
 HirstSpotPainter(size=(600, 600), image_file='Images/Image.jpg', pattern='circle').finalize()
 ```
-<img src='Images/ScreenGIF_Circle.gif' width='50%' alt='ScreenGIF_Circle.gif'>
+<img src='Images/ScreenGIF_Circle.gif' width='60%' alt='ScreenGIF_Circle.gif'>
