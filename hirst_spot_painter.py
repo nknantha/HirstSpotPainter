@@ -14,7 +14,7 @@ __version__ = '0.2'
 
 import turtle
 import math
-from random import choice
+from random import choice, randint
 from colorthief import ColorThief
 from typing import Sequence, Tuple, Union
 
@@ -117,16 +117,20 @@ class HirstSpotPainter(turtle.Turtle):
         # Calculations.
         min_size = self._wsize[0] if self._wsize[0] < self._wsize[1] else self._wsize[1]
         cir_counts = ((min_size // 2) - PAD) // STEPSIZE
+        startx, starty = 0, 5
 
         # Painting dots.
         self.up()
-        self.goto(0, 5)
+        self.goto(startx, starty)
         self.dot(DOTSIZE, self._yield_color())
         for i in range(cir_counts):
             radius = STEPSIZE + (STEPSIZE * i)
-            self.goto(self.xcor(), self.ycor() - STEPSIZE)
+            self.goto(startx, starty - radius)
+            self.setheading(0)
+            # self.circle(radius, randint(0, 45))
             dot_counts = math.floor((2 * math.pi * radius) / STEPSIZE)
             deg = 360 / dot_counts
+
             for j in range(dot_counts):
                 self.dot(DOTSIZE, self._yield_color())
                 self.circle(radius, deg)
@@ -147,7 +151,6 @@ class HirstSpotPainter(turtle.Turtle):
         """
         Sets the screen footer with project link.
         """
-        # (299, 10) ('Arial', 11, 'italic')
         if self._hspscreen:
             self.up()
             self.goto((self._wsize[0] // 2) - 299, -((self._wsize[1] // 2) - 10))
@@ -166,6 +169,7 @@ class HirstSpotPainter(turtle.Turtle):
         self._hspscreen.setup(*self._wsize)
         self._hspscreen.screensize(self._wsize[0] - 30, self._wsize[1] - 30)
         self._hspscreen.tracer(2)
+        self.speed(9)
         self._hspscreen.title('Hirst Spot Painting')
         self._hspscreen.colormode(255)
         self._set_footer()
