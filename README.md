@@ -50,7 +50,7 @@ class `HirstPainter`:
 ## Examples
 
 ### Input:  
-<img src='Images/Image.jpg' width='70%' alt='Image.jpg'>
+<img src='Images/Image.jpg' width='60%' alt='Image.jpg'>
 
 *Photo by Steve Johnson from Pexels*
   
@@ -59,10 +59,10 @@ For,
 ```python
 HirstSpotPainter(size=(600, 600), image_file='Images/Image.jpg').finalize()
 ```
-<img src='Images/ScreenGIF_Square.gif' width='80%' alt='ScreenGIF_Square.gif'>
+<img src='Images/ScreenGIF_Square.gif' width='50%' alt='ScreenGIF_Square.gif'>
   
 For,
 ```python
 HirstSpotPainter(size=(600, 600), image_file='Images/Image.jpg', pattern='circle').finalize()
 ```
-<img src='Images/ScreenGIF_Circle.gif' width='80%' alt='ScreenGIF_Circle.gif'>
+<img src='Images/ScreenGIF_Circle.gif' width='50%' alt='ScreenGIF_Circle.gif'>
